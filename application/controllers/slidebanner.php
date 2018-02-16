@@ -9,4 +9,11 @@ class slidebanner extends CI_Controller {
 		$this->load->view('slidebanner_view');		
 		$this->load->view('footer');
 	}
+
+	public function add()
+	{
+		$this->load->view('header');
+		$this->load->view('slidebanner_add_view');
+		$this->load->view('footer');
+	}
 }

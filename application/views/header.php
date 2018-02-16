@@ -7,7 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Starter</title>
+  <title><?php echo $title ?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="<?php echo base_url()?>assets/css/bootstrap.min.css">
@@ -60,7 +60,7 @@ desired effect
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="<?php echo base_url()?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>MJM</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -131,10 +131,10 @@ desired effect
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN MENU</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="<?php echo base_url()?>admin"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li><a href="<?php echo base_url()?>slidebanner"><i class="fa fa-inbox"></i> <span>Slide Banner</span></a></li>
-        <li><a href="<?php echo base_url()?>paket"><i class="fa fa-inbox"></i> <span>Paket</span></a></li>        
-        <li><a href="<?php echo base_url()?>gallery"><i class="fa fa-inbox"></i> <span>Gallery</span></a></li>        
+        <li <?php if($menu == "dashboard"){echo 'class="active"';}?>><a href="<?php echo base_url()?>admin"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+        <li <?php if($menu == "banner"){echo 'class="active"';}?>><a href="<?php echo base_url()?>slidebanner"><i class="fa fa-inbox"></i> <span>Slide Banner</span></a></li>
+        <li <?php if($menu == "paket"){echo 'class="active"';}?>><a href="<?php echo base_url()?>paket"><i class="fa fa-inbox"></i> <span>Paket</span></a></li>        
+        <li <?php if($menu == "gallery"){echo 'class="active"';}?>><a href="<?php echo base_url()?>gallery"><i class="fa fa-inbox"></i> <span>Gallery</span></a></li>        
       </ul>
       <!-- /.sidebar-menu -->
     </section>

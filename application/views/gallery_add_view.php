@@ -29,7 +29,7 @@
 							<div class="box-header with-border">
 								<h3 class="box-title">Gallery Form Information</h3>
 							</div>
-							<form method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>gallery/add">
+							<form method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>gallery/add" enctype="multipart/form-data">
 								<table class="table table-bordered">
 									<tbody>
 										<tr>

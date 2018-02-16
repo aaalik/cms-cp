@@ -5,14 +5,20 @@ class slidebanner extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('header');
+		$data['menu'] = "banner";
+		$data['title'] = "Slide Banner | MJM Travel";
+
+		$this->load->view('header', $data);
 		$this->load->view('slidebanner_view');		
 		$this->load->view('footer');
 	}
 
 	public function add()
 	{
-		$this->load->view('header');
+		$data['menu'] = "banner";
+		$data['title'] = "Tambah Slide Banner | MJM Travel";
+
+		$this->load->view('header', $data);
 		$this->load->view('slidebanner_add_view');
 		$this->load->view('footer');
 	}

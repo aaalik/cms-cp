@@ -27,64 +27,57 @@
 							</div>
 							<!-- form start -->
 							<form method="get" action="<?php echo base_url()?>paket" class="form-horizontal">
-
 								<div class="box-body">
-
 									<div class="row">
 										<div class="col-sm-3">
 											<label for="exampleInputEmail1">Title</label>
-											<input type="text" name="title" value="" class="form-control">
+											<input type="text" name="title" value="<?php echo $title ?>" class="form-control">
 										</div>
-
 									</div>
-
 								</div>
-
 								<div class="box-footer">
 									<button type="submit" class="btn btn-primary">
 										<i class="fa fa-search"></i> Cari</button>
 									&nbsp;&nbsp;
 									<a class="btn btn-primary" href="<?php echo base_url()?>paket/add">
-										<i class="fa fa-plus"></i> Tambah News
+										<i class="fa fa-plus"></i> Tambah Paket
 									</a>
 								</div>
 							</form>
 						</div>
 					</div>
 				</div>
-
 				<div class="box">
 					<div class="box-body table-responsive no-padding">
-						<p style="font-weight: bold;text-decoration: underline;">Total Data : 1</p>
+						<p style="font-weight: bold;text-decoration: underline; padding-top: 5px; padding-left: 10px;">Total Data : 1</p>
 						<table class="table table-hover">
-
-
 							<tbody>
 								<tr>
 									<th class="text-center">ACTION</th>
 									<th class="text-center" colspan="3">TITLE</th>
-									<th class="text-center">PUBLISH DATE</th>
+									<th class="text-center">TANGGAL KEBERANGKATAN</th>
 									<th class="text-center">STATUS</th>
 								</tr>
+								<?php foreach ($row as $key) {?>
 								<tr>
 									<td>
-										<a href="<?php echo base_url()?>paket/view?id=1">
+										<a href="<?php echo base_url()?>paket/detail?id=<?php echo $key->id?>">
 											<button class="btn btn-block btn-default btn-sm">
-												<i class="fa fa-eye"></i> View Detail</button>
+												<i class="fa fa-eye"></i> View Detail
+											</button>
 										</a>
 									</td>
-									<td class="text-center" colspan="3">Anton</td>
-									<td class="text-center">2018-02-09 10:49:14</td>
-									<td class="text-center">1</td>
+									<td class="text-center" colspan="3"><?php echo $key->title?></td>
+									<td class="text-center"><?php echo $key->tgl_berangkat?></td>
+									<td class="text-center"><?php echo $key->status?></td>
 								</tr>
-
+								<?php }?>
 							</tbody>
 						</table>
 					</div>
 					<!-- /.box-body -->
 				</div>
 				<!-- /.box -->
-
 			</div>
 		</div>
 	</section>

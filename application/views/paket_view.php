@@ -49,7 +49,7 @@
 				</div>
 				<div class="box">
 					<div class="box-body table-responsive no-padding">
-						<p style="font-weight: bold;text-decoration: underline; padding-top: 5px; padding-left: 10px;">Total Data : 1</p>
+						<p style="font-weight: bold;text-decoration: underline; padding-top: 5px; padding-left: 10px;">Total Data : <?php echo $row->num_rows(); ?></p>
 						<table class="table table-hover">
 							<tbody>
 								<tr>
@@ -58,7 +58,7 @@
 									<th class="text-center">TANGGAL KEBERANGKATAN</th>
 									<th class="text-center">STATUS</th>
 								</tr>
-								<?php foreach ($row as $key) {?>
+								<?php foreach ($row->result() as $key) {?>
 								<tr>
 									<td>
 										<a href="<?php echo base_url()?>paket/detail?id=<?php echo $key->id?>">

@@ -13,8 +13,13 @@ class mpaket extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('tb_paket');
 		$query = $this->db->get();
-		return $query->result();
+		return $query;
     }
+
+    function updatepaket($id, $data){
+		$this->db->where('id',$id);
+		$query = $this->db->update("tb_paket",$data);
+	}
     
     public function detail($id)
     {

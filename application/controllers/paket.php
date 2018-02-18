@@ -54,6 +54,7 @@ class paket extends CI_Controller {
 		$this->load->view('footer');
 	}
 
+	// not view function
 	public function addpaket()
 	{
 		$config['upload_path'] = '../company-profile-kons/asset/uploads/';
@@ -82,17 +83,20 @@ class paket extends CI_Controller {
 
 	public function editpaket()
 	{
-		// password_hash("rasmuslerdorf", PASSWORD_DEFAULT);
-		// password_verify($password, $hash);
-		$config['upload_path'] = '../company-profile-kons/assets/uploads/';
+		$get_id = $this->input->get("id", true);
+		$config['upload_path'] = '../company-profile-kons/asset/uploads/';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
 		
-        $this->load->library('upload', $config);
-        if(!$this->upload->do_upload('banner')){
-			echo "<script>alert('File Harus Gambar');location='".base_url()."paket/detail'</script>";
-		}else{
-			$data = array(
+		$this->load->library('upload', $config);
+		if(isset($_FILES))
+    	{
+			// $_FILES['*name in html*']['name']
+			if(empty($_FILES['banner']['name']))
+			{
+				//logic here
+				$data = array(
 						'title'=>$this->input->post('title'),
+						'url_title'=>url_title($this->input->post('title'), "dash", TRUE),
 						'harga'=>$this->input->post('harga'),
 						'tgl_berangkat'=>$this->input->post('tgl_berangkat'),
 						'deskripsi'=>$this->input->post('deskripsi'),
@@ -100,11 +104,31 @@ class paket extends CI_Controller {
 						'fasilitas'=>$this->input->post('fasilitas'),
 						'ketentuan'=>$this->input->post('ketentuan'),
 						'status'=>$this->input->post('status'),
-						'img'=>$this->upload->data('file_name')
 					);
-			$this->mpaket->add($data);
-			echo "<script>alert('Simpan Berhasil');location='".base_url()."paket'</script>";
+				$this->mpaket->updatepaket($get_id, $data);
+				echo "<script>alert('Simpan ".$_FILES['banner']['name']." Berhasil');location='".base_url()."paket'</script>";
+			}else{
+				if(!$this->upload->do_upload('banner')){
+					echo "<script>alert('File Harus Gambar');location='".base_url()."paket/detail?id=".$get_id."'</script>";
+				}else{
+					$data = array(
+								'title'=>$this->input->post('title'),
+								'url_title'=>url_title($this->input->post('title'), "dash", TRUE),
+								'harga'=>$this->input->post('harga'),
+								'tgl_berangkat'=>$this->input->post('tgl_berangkat'),
+								'deskripsi'=>$this->input->post('deskripsi'),
+								'itinerary'=>$this->input->post('itinerary'),
+								'fasilitas'=>$this->input->post('fasilitas'),
+								'ketentuan'=>$this->input->post('ketentuan'),
+								'status'=>$this->input->post('status'),
+								'img'=>$this->upload->data('file_name')
+							);
+					$this->mpaket->updatepaket($get_id, $data);
+					echo "<script>alert('Simpan gambar Berhasil');location='".base_url()."paket'</script>";
+				}
+			}
 		}
+        
 	}
 
 	public function delete()

@@ -29,7 +29,7 @@
 							<div class="box-header with-border">
 								<h3 class="box-title">Paket Form Information</h3>
 							</div>
-							<form method="post" action="<?php echo base_url()?>paket/editpaket" enctype="multipart/form-data">
+							<form method="post" action="<?php echo base_url()?>paket/editpaket?id=<?php echo $row->id?>" enctype="multipart/form-data">
 								<table class="table table-bordered">
 									<tbody>
 										<tr>

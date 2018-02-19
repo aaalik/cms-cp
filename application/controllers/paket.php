@@ -65,19 +65,22 @@ class paket extends CI_Controller {
 			echo "<script>alert('File Harus Gambar');location='".base_url()."paket/add'</script>";
 		}else{
 			$data = array(
-						'title'=>$this->input->post('title'),
-						'url_title'=>url_title($this->input->post('title'), "dash", TRUE),
-						'harga'=>$this->input->post('harga'),
-						'tgl_berangkat'=>$this->input->post('tgl_berangkat'),
-						'deskripsi'=>$this->input->post('deskripsi'),
-						'itinerary'=>$this->input->post('itinerary'),
-						'fasilitas'=>$this->input->post('fasilitas'),
-						'ketentuan'=>$this->input->post('ketentuan'),
-						'status'=>$this->input->post('status'),
-						'img'=>$this->upload->data('file_name')
-					);
+				'id'=>'LAST_INSERT_ID()',
+				'title'=>$this->input->post('title'),
+				'url_title'=>url_title($this->input->post('title'), "dash", TRUE),
+				'harga'=>$this->input->post('harga'),
+				'tgl_berangkat'=>$this->input->post('tgl_berangkat'),
+				'deskripsi'=>$this->input->post('deskripsi'),
+				'itinerary'=>$this->input->post('itinerary'),
+				'fasilitas'=>$this->input->post('fasilitas'),
+				'ketentuan'=>$this->input->post('ketentuan'),
+				'status'=>$this->input->post('status'),
+				'img'=>$this->upload->data('file_name')
+			);
 			$this->mpaket->add($data);
-			echo "<script>alert('Simpan Berhasil');location='".base_url()."paket'</script>";
+			$this->session->set_flashdata('msg','<strong>Paket berhasil ditambahkan.</strong>');
+			redirect(base_url('paket'));
+			// echo "<script>alert('Simpan Berhasil');location='".base_url()."paket'</script>";
 		}
 	}
 
@@ -95,6 +98,24 @@ class paket extends CI_Controller {
 			{
 				//logic here
 				$data = array(
+					'title'=>$this->input->post('title'),
+					'url_title'=>url_title($this->input->post('title'), "dash", TRUE),
+					'harga'=>$this->input->post('harga'),
+					'tgl_berangkat'=>$this->input->post('tgl_berangkat'),
+					'deskripsi'=>$this->input->post('deskripsi'),
+					'itinerary'=>$this->input->post('itinerary'),
+					'fasilitas'=>$this->input->post('fasilitas'),
+					'ketentuan'=>$this->input->post('ketentuan'),
+					'status'=>$this->input->post('status'),
+				);
+				$this->mpaket->updatepaket($get_id, $data);
+				$this->session->set_flashdata('msg','<strong>Paket berhasil diupdate.</strong>');
+				redirect(base_url('paket'));
+			}else{
+				if(!$this->upload->do_upload('banner')){
+					echo "<script>alert('File Harus Gambar');location='".base_url()."paket/detail?id=".$get_id."'</script>";
+				}else{
+					$data = array(
 						'title'=>$this->input->post('title'),
 						'url_title'=>url_title($this->input->post('title'), "dash", TRUE),
 						'harga'=>$this->input->post('harga'),
@@ -104,27 +125,11 @@ class paket extends CI_Controller {
 						'fasilitas'=>$this->input->post('fasilitas'),
 						'ketentuan'=>$this->input->post('ketentuan'),
 						'status'=>$this->input->post('status'),
+						'img'=>$this->upload->data('file_name')
 					);
-				$this->mpaket->updatepaket($get_id, $data);
-				echo "<script>alert('Simpan ".$_FILES['banner']['name']." Berhasil');location='".base_url()."paket'</script>";
-			}else{
-				if(!$this->upload->do_upload('banner')){
-					echo "<script>alert('File Harus Gambar');location='".base_url()."paket/detail?id=".$get_id."'</script>";
-				}else{
-					$data = array(
-								'title'=>$this->input->post('title'),
-								'url_title'=>url_title($this->input->post('title'), "dash", TRUE),
-								'harga'=>$this->input->post('harga'),
-								'tgl_berangkat'=>$this->input->post('tgl_berangkat'),
-								'deskripsi'=>$this->input->post('deskripsi'),
-								'itinerary'=>$this->input->post('itinerary'),
-								'fasilitas'=>$this->input->post('fasilitas'),
-								'ketentuan'=>$this->input->post('ketentuan'),
-								'status'=>$this->input->post('status'),
-								'img'=>$this->upload->data('file_name')
-							);
 					$this->mpaket->updatepaket($get_id, $data);
-					echo "<script>alert('Simpan gambar Berhasil');location='".base_url()."paket'</script>";
+					$this->session->set_flashdata('msg','<strong>Paket berhasil diupdate.</strong>');
+					redirect(base_url('paket'));
 				}
 			}
 		}
@@ -135,7 +140,8 @@ class paket extends CI_Controller {
 	{
 		$get_id = $this->input->get("id", true);
 		$this->mpaket->deletepaket($get_id);
-		redirect(base_url('paket/'));
+		$this->session->set_flashdata('msg','<strong>Paket berhasil dihapus.</strong>');
+		redirect(base_url('paket'));
 	}
 
 }

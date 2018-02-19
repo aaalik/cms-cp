@@ -104,9 +104,8 @@
 										<tr>
 											<th style="width:150px"></th>
 											<td colspan="2" style="width:250px">
-												<input type="hidden" name="csrf_test_name" value="d746bdc9c4a19661cc8f79fc7c7e22d6" style="display: none">
 												<input type="submit" class="btn btn-primary" value="Submit">
-												<a href="<?php echo base_url()?>paket/delete?id=<?php echo $row->id?>" class="btn btn-danger">Delete</a>
+												<a href="<?php echo base_url()?>paket/delete?id=<?php echo $row->id?>" class="btn btn-danger pull-right">Delete</a>
 											</td>
 										</tr>
 									</tbody>

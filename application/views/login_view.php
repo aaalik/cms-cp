@@ -34,7 +34,7 @@
       <a href=""><b>MJM</b>Travel</a>
     </div>
     <!-- login logo -->
-    <form action="<?php echo base_url()?>login" method="post">
+    <form action="<?php echo base_url()?>login/validation" method="post">
       <div class="form-group has-feedback">
         <input type="email" name="email" class="form-control" placeholder="Email" value="asepjason@gmail.com">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -49,10 +49,12 @@
         </div>
         <!-- /.col -->
       </div>
-      <br/>
-      <div style="text-align:center;font-weight:bold">
-        <?php echo $msg; ?>
-      </div>
+
+      <?php if($this->session->flashdata("msg")!=""){ ?>
+        <div style="color: red; text-align: center;">
+          <?php echo $this->session->flashdata("msg") ?>
+        </div>
+      <?php } ?>
     </form>
 
   </div>

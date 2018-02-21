@@ -77,6 +77,9 @@ class slidebanner extends CI_Controller {
         $this->load->library('upload', $config);
         if(!$this->upload->do_upload('banner')){
 			$this->session->set_flashdata('msg','<div class="alert alert-danger"><strong>File harus gambar.</strong></div>');
+			$this->session->set_flashdata('title',$this->input->post('title'));
+			$this->session->set_flashdata('order',$this->input->post('order'));			
+			$this->session->set_flashdata('status',$this->input->post('status'));									
 			redirect(base_url('slidebanner/add'));
 		}else{
 			$data = array(
@@ -117,6 +120,9 @@ class slidebanner extends CI_Controller {
 			}else{
 				if(!$this->upload->do_upload('banner')){
 					$this->session->set_flashdata('msg','<div class="alert alert-danger"><strong>File harus gambar.</strong></div>');
+					$this->session->set_flashdata('title',$this->input->post('title'));
+					$this->session->set_flashdata('order',$this->input->post('order'));			
+					$this->session->set_flashdata('status',$this->input->post('status'));
 					redirect(base_url('slidebanner/detail?id=').$get_id);
 				}else{
 					$data = array(

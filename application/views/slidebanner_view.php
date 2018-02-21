@@ -46,7 +46,7 @@
 										<div class="col-sm-3">
 											<label for="exampleInputEmail1">Status</label>
 											<select name="status" class="form-control" id="status">
-												<option value="" selected="selected">Pilih Status Banner</option>
+												<option value="">Pilih Status Banner</option>
 												<option value="1"<?php if($status=="1"){ echo 'selected="selected"';}?>>Aktif</option>
 												<option value="0"<?php if($status=="0"){ echo 'selected="selected"';}?>>Tidak Aktif</option>
 											</select>

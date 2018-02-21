@@ -64,6 +64,14 @@ class paket extends CI_Controller {
         $this->load->library('upload', $config);
         if(!$this->upload->do_upload('banner')){
 			$this->session->set_flashdata('msg','<strong>File harus gambar.</strong>');
+			$this->session->set_flashdata('title',$this->input->post('title'));
+			$this->session->set_flashdata('harga',$this->input->post('harga'));
+			$this->session->set_flashdata('tgl_berangkat',$this->input->post('tgl_berangkat'));
+			$this->session->set_flashdata('deskripsi',$this->input->post('deskripsi'));
+			$this->session->set_flashdata('itinerary',$this->input->post('itinerary'));
+			$this->session->set_flashdata('fasilitas',$this->input->post('fasilitas'));
+			$this->session->set_flashdata('ketentuan',$this->input->post('ketentuan'));
+			$this->session->set_flashdata('status',$this->input->post('status'));
 			redirect(base_url('paket/add'));
 		}else{
 			$data = array(

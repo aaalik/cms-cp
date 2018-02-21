@@ -37,7 +37,7 @@
 										<tr>
 											<th style="width:150px">TITLE</th>
 											<td>
-												<input type="text" class="form-control" name="title" value="" required>
+												<input type="text" class="form-control" name="title" value="<?php echo $this->session->flashdata("title") ?>" required>
 												<div style="color:red"></div>
 											</td>
 										</tr>
@@ -52,7 +52,7 @@
 										<tr>
 											<th style="width:150px">URUTAN</th>
 											<td>
-												<input style="width:60px;text-align:center" type="number" class="form-control" name="order" value="" required>
+												<input style="width:60px;text-align:center" type="number" class="form-control" name="order" value="<?php echo $this->session->flashdata("order") ?>" required>
 												<div style="color:red"></div>
 											</td>
 										</tr>
@@ -60,9 +60,9 @@
 											<th style="width:150px">STATUS</th>
 											<td>
 												<select name="status" class="form-control" id="status" style="width:200px;text-align:center" required>
-													<option value="" selected="selected">Pilih Status Banner</option>
-													<option value="1">Aktif</option>
-													<option value="2">Tidak Aktif</option>
+													<option value="">Pilih Status Banner</option>
+													<option value="1" <?php if($this->session->flashdata("status")=="1"){ echo 'selected="selected"';} ?>>Aktif</option>
+													<option value="0" <?php if($this->session->flashdata("status")=="0"){ echo 'selected="selected"';} ?>>Tidak Aktif</option>
 												</select>
 												<div style="color:red"></div>
 											</td>

@@ -15,6 +15,7 @@ class paket extends CI_Controller {
 
 	public function index()
 	{
+		// variable untuk mencari data
 		$query['title'] = $this->input->get('title', TRUE);
 		if($query['title'] != "")
 		{
@@ -62,10 +63,10 @@ class paket extends CI_Controller {
 		
         $this->load->library('upload', $config);
         if(!$this->upload->do_upload('banner')){
-			echo "<script>alert('File Harus Gambar');location='".base_url()."paket/add'</script>";
+			$this->session->set_flashdata('msg','<strong>File harus gambar.</strong>');
+			redirect(base_url('paket/add'));
 		}else{
 			$data = array(
-				'id'=>'LAST_INSERT_ID()',
 				'title'=>$this->input->post('title'),
 				'url_title'=>url_title($this->input->post('title'), "dash", TRUE),
 				'harga'=>$this->input->post('harga'),
@@ -113,7 +114,8 @@ class paket extends CI_Controller {
 				redirect(base_url('paket'));
 			}else{
 				if(!$this->upload->do_upload('banner')){
-					echo "<script>alert('File Harus Gambar');location='".base_url()."paket/detail?id=".$get_id."'</script>";
+					$this->session->set_flashdata('msg','<strong>File harus gambar.</strong>');
+					redirect(base_url('paket/detail?id=').$get_id);
 				}else{
 					$data = array(
 						'title'=>$this->input->post('title'),

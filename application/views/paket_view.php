@@ -61,14 +61,14 @@
 						<table class="table table-hover">
 							<tbody>
 								<tr>
-									<th class="text-center">ACTION</th>
+									<th class="text-center" width="130">ACTION</th>
 									<th class="text-center" colspan="3">TITLE</th>
 									<th class="text-center">TANGGAL KEBERANGKATAN</th>
 									<th class="text-center">STATUS</th>
 								</tr>
 								<?php foreach ($row->result() as $key) {?>
 								<tr>
-									<td>
+									<td width="130">
 										<a href="<?php echo base_url()?>paket/detail?id=<?php echo $key->id?>">
 											<button class="btn btn-block btn-default btn-sm">
 												<i class="fa fa-eye"></i> View Detail

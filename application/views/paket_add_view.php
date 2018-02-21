@@ -24,6 +24,14 @@
 		<div class="container-fluid half-padding">
 			<div class="template template__blank">
 				<div class="row">
+
+					<!-- flash message -->
+					<?php if($this->session->flashdata("msg")!=""){ ?>
+                		<div class="alert alert-danger">
+                    		<?php echo $this->session->flashdata("msg") ?>
+                		</div>
+					<?php } ?>
+					
 					<div class="col-md-12">
 						<div class="box box-primary">
 							<div class="box-header with-border">

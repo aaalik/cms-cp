@@ -20,6 +20,12 @@
 
 			<div class="template template__blank">
 				<div class="row">
+
+					<!-- flash message -->
+					<?php if($this->session->flashdata("msg")!=""){ ?>
+                    	<?php echo $this->session->flashdata("msg") ?>
+					<?php } ?>
+
 					<div class="col-md-12">
 						<div class="box box-primary">
 							<div class="box-header with-border">
@@ -27,20 +33,13 @@
 							</div>
 							<!-- form start -->
 							<form method="get" action="<?php echo base_url()?>gallery" class="form-horizontal">
-
 								<div class="box-body">
-
-
 									<div class="row">
 										<div class="col-sm-3">
 											<label for="exampleInputEmail1">Title</label>
 											<input type="text" class="form-control" name="name" value="">
 										</div>
-
-
-
 									</div>
-
 								</div>
 
 								<div class="box-footer">
@@ -58,10 +57,8 @@
 
 				<div class="box">
 					<div class="box-body table-responsive no-padding">
-						<p style="font-weight: bold;text-decoration: underline;">Total Data : 0</p>
+						<p style="font-weight: bold;text-decoration: underline; padding-top: 5px; padding-left: 10px;">Total Data : <?php echo $row->num_rows(); ?></p>						
 						<table class="table table-hover">
-
-
 							<tbody>
 								<tr>
 									<th class="text-center">ACTION</th>
@@ -69,8 +66,20 @@
 									<th class="text-center">PUBLISH DATE</th>
 									<th class="text-center">IMAGE</th>
 								</tr>
-
-
+								<?php foreach ($row->result() as $key) {?>
+								<tr>
+									<td width="130">
+										<a href="<?php echo base_url()?>gallery/detail?id=<?php echo $key->id_gallery?>">
+											<button class="btn btn-block btn-default btn-sm">
+												<i class="fa fa-eye"></i> View Detail
+											</button>
+										</a>
+									</td>
+									<td class="text-center"><?php echo $key->title_gallery?></td>
+									<td class="text-center"><?php echo $key->upload_date?></td>
+									<td class="text-center"><?php echo $key->img_gallery?></td>
+								</tr>
+								<?php }?>
 							</tbody>
 						</table>
 					</div>

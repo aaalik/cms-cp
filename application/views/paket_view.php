@@ -41,6 +41,10 @@
 											<label for="exampleInputEmail1">Title</label>
 											<input type="text" name="title" value="<?php echo $title ?>" class="form-control">
 										</div>
+										<div class="col-sm-3">
+											<label for="exampleInputEmail1">Tanggal Keberangkatan</label>
+											<input type="date" name="tgl_brgkt" value="<?php echo $tgl_brgkt?>" class="form-control" />
+										</div>
 									</div>
 								</div>
 								<div class="box-footer">

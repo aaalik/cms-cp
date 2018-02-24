@@ -67,7 +67,7 @@
 											<th style="width:150px">TANGGAL KEBERANGKATAN</th>
 											<td>
 												<input type="date" class="form-control" name="tgl_berangkat" value="<?php echo $row->tgl_berangkat?>" required>
-												<div style="color:red"></div>
+												
 											</td>
 										</tr>
 										<tr>

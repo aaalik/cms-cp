@@ -50,7 +50,7 @@
 											<th style="width:150px">BANNER</th>
 											<td>
 												<input type="file" name="banner" required>
-												<p style="font-weight:bold;font-size:10px;margin-top:5px">*(Hanya file dengan type .jpg, kapasitas max. 200 Kb, panjang karakter 60, dan ukuran file 1000x438 px)</p>						
+												<p style="font-weight:bold;font-size:10px;margin-top:5px">*(Hanya file dengan type .jpg, kapasitas max. 200 Kb, panjang karakter 60, dan ukuran file 1000x438 px)</p>
 											</td>
 										</tr>
 										<tr>

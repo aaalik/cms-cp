@@ -37,7 +37,7 @@
 									<div class="row">
 										<div class="col-sm-3">
 											<label for="exampleInputEmail1">Title</label>
-											<input type="text" class="form-control" name="name" value="">
+											<input type="text" class="form-control" name="title" value="<?php echo $title?>">
 										</div>
 									</div>
 								</div>

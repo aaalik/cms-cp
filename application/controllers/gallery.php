@@ -19,8 +19,6 @@ class gallery extends CI_Controller {
 		$data['title'] = "Gallery | MJM Travel";
 
 		$query['title'] = $this->input->get('title', TRUE);
-		$query['order'] = $this->input->get('order', TRUE);
-		$query['status'] = $this->input->get('status', TRUE);
 		// untuk mencari judul
 		if($query['title'] != "")
 		{

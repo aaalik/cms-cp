@@ -18,6 +18,8 @@ class gallery extends CI_Controller {
 		$data['menu'] = "gallery";
 		$data['title'] = "Gallery | MJM Travel";
 
+		$query['userview_url'] = "http://localhost/company-profile-kons/";		
+
 		$query['title'] = $this->input->get('title', TRUE);
 		// untuk mencari judul
 		if($query['title'] != "")

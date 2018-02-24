@@ -77,7 +77,7 @@
 									</td>
 									<td class="text-center"><?php echo $key->title_gallery?></td>
 									<td class="text-center"><?php echo $key->upload_date?></td>
-									<td class="text-center"><?php echo $key->img_gallery?></td>
+									<td class="text-center"><img width="150" height="50" src="<?php echo $userview_url?>asset/gallery/<?php echo $key->img_gallery?>"></td>
 								</tr>
 								<?php }?>
 							</tbody>

@@ -17,7 +17,8 @@ class paket extends CI_Controller {
 	{
 		// variable untuk mencari data
 		$query['title'] = $this->input->get('title', TRUE);
-		$query['tgl_brgkt'] = $this->input->get('tgl_brgkt', TRUE);		
+		$query['tgl_brgkt'] = $this->input->get('tgl_brgkt', TRUE);
+		$query['status'] = $this->input->get('status', TRUE);		
 		if($query['title'] != "")
 		{
 			$this->db->like('title', $query['title']);
@@ -25,6 +26,10 @@ class paket extends CI_Controller {
 		if($query['tgl_brgkt'] != "")
 		{
 			$this->db->like('tgl_berangkat', $query['tgl_brgkt']);
+		}
+		if($query['status'] != "")
+		{
+			$this->db->like('status', $query['status']);
 		}
 		$query['row'] = $this->mpaket->get_paket();
 

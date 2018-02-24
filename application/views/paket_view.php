@@ -45,11 +45,24 @@
 											<label for="exampleInputEmail1">Tanggal Keberangkatan</label>
 											<input type="date" name="tgl_brgkt" value="<?php echo $tgl_brgkt?>" class="form-control" />
 										</div>
+										<div class="col-sm-3">
+											<label for="exampleInputEmail1">Status</label>
+											<select name="status" class="form-control" id="status">
+												<option value="">Pilih Status Paket</option>
+												<option value="1"<?php if($status=="1"){ echo 'selected="selected"';}?>>Aktif</option>
+												<option value="0"<?php if($status=="0"){ echo 'selected="selected"';}?>>Tidak Aktif</option>
+											</select>
+										</div>
 									</div>
 								</div>
 								<div class="box-footer">
 									<button type="submit" class="btn btn-primary">
-										<i class="fa fa-search"></i> Cari</button>
+										<i class="fa fa-search"></i> Cari
+									</button>
+									&nbsp;&nbsp;
+									<a class="btn btn-primary" href="<?php echo base_url()?>paket">
+										<i class="fa fa-time"></i> Clear Filter
+									</a>
 									&nbsp;&nbsp;
 									<a class="btn btn-primary" href="<?php echo base_url()?>paket/add">
 										<i class="fa fa-plus"></i> Tambah Paket

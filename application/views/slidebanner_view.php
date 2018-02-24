@@ -57,6 +57,10 @@
 									<button type="submit" class="btn btn-primary">
 										<i class="fa fa-search"></i> Cari</button>
 									&nbsp;&nbsp;
+									<a class="btn btn-primary" href="<?php echo base_url()?>slidebanner">
+										<i class="fa fa-time"></i> Clear Filter
+									</a>
+									&nbsp;&nbsp;
 									<a class="btn btn-primary" href="<?php echo base_url()?>slidebanner/add">
 										<i class="fa fa-plus"></i> Tambah Banner
 									</a>
@@ -86,7 +90,7 @@
 									</a>
 								</td>
 								<td class="text-center"><?php echo $key->title_banner?></td>
-								<td class="text-center">bbb</td>
+								<td class="text-center"><img width="150" height="50" src="<?php echo $userview_url?>asset/banner/<?php echo $key->img_banner?>"></td>
 								<td class="text-center"><?php echo $key->order_banner?></td>
 								<td class="text-center"><?php echo $key->status_banner?></td>									
 							</tr>

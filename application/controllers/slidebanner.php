@@ -15,6 +15,8 @@ class slidebanner extends CI_Controller {
 
 	public function index()
 	{
+		$query['userview_url'] = "http://localhost/company-profile-kons/";		
+
 		$query['title'] = $this->input->get('title', TRUE);
 		$query['order'] = $this->input->get('order', TRUE);
 		$query['status'] = $this->input->get('status', TRUE);

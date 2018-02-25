@@ -113,7 +113,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <li class="header">MAIN MENU</li>
         <!-- Optionally, you can add icons to the links -->
         <li <?php if($menu == "dashboard"){echo 'class="active"';}?>><a href="<?php echo base_url()?>admin"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-        <li <?php if($menu == "usrmgmt"){echo 'class="active"';}?>><a href="<?php echo base_url()?>admin/users"><i class="fa fa-users"></i> <span>Manage Users</span></a></li>        
+        <?php if($this->session->userdata('userlevel')=="1"){?>
+          <li <?php if($menu == "usrmgmt"){echo 'class="active"';}?>><a href="<?php echo base_url()?>admin/users"><i class="fa fa-users"></i> <span>Manage Users</span></a></li>
+        <?php } ?>  
         <li <?php if($menu == "banner"){echo 'class="active"';}?>><a href="<?php echo base_url()?>slidebanner"><i class="fa fa-image"></i> <span>Slide Banner</span></a></li>
         <li <?php if($menu == "paket"){echo 'class="active"';}?>><a href="<?php echo base_url()?>paket"><i class="fa fa-paper-plane"></i> <span>Paket</span></a></li>        
         <li <?php if($menu == "gallery"){echo 'class="active"';}?>><a href="<?php echo base_url()?>gallery"><i class="fa fa-image"></i> <span>Gallery</span></a></li>

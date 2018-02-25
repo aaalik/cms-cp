@@ -7,7 +7,7 @@ class admin extends CI_Controller {
 		parent::__construct();
 		$this->load->model('madmin');
 		// do your validations
-		while(!$this->session->userdata('loggedin'))
+		while($this->session->userdata('userlevel')!="1")
 		{
 			redirect(base_url('login'));
 		}

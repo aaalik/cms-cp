@@ -3,7 +3,7 @@
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>
-			Slide Banner
+			Manage Users
 			<small>MJM Travel</small>
 		</h1>
 		<ol class="breadcrumb">
@@ -11,7 +11,7 @@
 				<a href="<?php echo base_url()?>">
 					<i class="fa fa-dashboard"></i>Home</a>
 			</li>
-			<li><a href="<?php echo base_url(); ?>slidebanner"><i class="fa fa-inbox"></i>Slide Banner</a></li>
+			<li><a href="<?php echo base_url(); ?>admin/users"><i class="fa fa-inbox"></i>Users</a></li>
 		    <li class="active">Tambah</li>
 		</ol>
 	</section>
@@ -29,38 +29,43 @@
 					<div class="col-md-12">
 						<div class="box box-primary">
 							<div class="box-header with-border">
-								<h3 class="box-title">Slide Banner Form Information</h3>
+								<h3 class="box-title">Add User Form Information</h3>
 							</div>
-							<form method="post" action="<?php echo base_url()?>slidebanner/addBanner" enctype="multipart/form-data">							
+							<form method="post" action="<?php echo base_url()?>admin/addUserf">							
 								<table class="table table-bordered">
 									<tbody>
 										<tr>
-											<th style="width:150px">TITLE</th>
+											<th style="width:50px">NAME</th>
 											<td>
-												<input type="text" class="form-control" name="title" value="<?php echo $this->session->flashdata("title") ?>" required>												
-											</td>
-										</tr>
-										<tr style="height:50px">
-											<th style="width:150px">BANNER</th>
-											<td>
-												<input type="file" name="banner" required>
-												<p style="font-weight:bold;font-size:10px;margin-top:5px">*(Hanya file dengan type .jpg dan kapasitas max. 200 Kb, ukuran file 768x766 px)</p>												
+												<input type="text" class="form-control" name="name" style="width:300px" value="<?php echo $this->session->flashdata('name')?>" required>												
 											</td>
 										</tr>
 										<tr>
-											<th style="width:150px">URUTAN</th>
+											<th style="width:50px">EMAIL</th>
 											<td>
-												<input style="width:60px;text-align:center" type="number" class="form-control" name="order" value="<?php echo $this->session->flashdata("order") ?>" required>											
+												<input type="email" class="form-control" name="email" style="width:300px" value="<?php echo $this->session->flashdata('email')?>" required>			
 											</td>
 										</tr>
 										<tr>
-											<th style="width:150px">STATUS</th>
+											<th style="width:50px">PASSWORD</th>
+											<td>
+												<input type="password" class="form-control" name="password" style="width:300px" value="" required>
+											</td>
+										</tr>
+                                        <tr>
+											<th style="width:50px">CONFIRM PASSWORD</th>
+											<td>
+												<input type="password" class="form-control" name="password2" style="width:300px" value="" required>
+											</td>
+										</tr>
+										<tr>
+											<th style="width:50px">STATUS</th>
 											<td>
 												<select name="status" class="form-control" id="status" style="width:200px;text-align:center" required>
-													<option value="">Pilih Status Banner</option>
-													<option value="1" <?php if($this->session->flashdata("status")=="1"){ echo 'selected="selected"';} ?>>Aktif</option>
-													<option value="0" <?php if($this->session->flashdata("status")=="0"){ echo 'selected="selected"';} ?>>Tidak Aktif</option>
-												</select>												
+													<option value="">Pilih Status User</option>
+													<option value="1" <?php if($this->session->flashdata('status')=="1"){echo 'selected="selected"';}?>>Aktif</option>
+													<option value="0" <?php if($this->session->flashdata('status')=="0"){echo 'selected="selected"';}?>>Tidak Aktif</option>
+												</select>											
 											</td>
 										</tr>
 										<tr>

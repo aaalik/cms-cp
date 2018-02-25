@@ -119,7 +119,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <li <?php if($menu == "banner"){echo 'class="active"';}?>><a href="<?php echo base_url()?>slidebanner"><i class="fa fa-image"></i> <span>Slide Banner</span></a></li>
         <li <?php if($menu == "paket"){echo 'class="active"';}?>><a href="<?php echo base_url()?>paket"><i class="fa fa-paper-plane"></i> <span>Paket</span></a></li>        
         <li <?php if($menu == "gallery"){echo 'class="active"';}?>><a href="<?php echo base_url()?>gallery"><i class="fa fa-image"></i> <span>Gallery</span></a></li>
-        <li <?php if($menu == "chgpassword"){echo 'class="active"';}?>><a href="<?php echo base_url()?>user"><i class="fa fa-key"></i> <span>Change Password</span></a></li>                
+        <li <?php if($menu == "chgpassword"){echo 'class="active"';}?>><a href="<?php echo base_url()?>user/changepassword"><i class="fa fa-key"></i> <span>Change Password</span></a></li>                
       </ul>
       <!-- /.sidebar-menu -->
     </section>
